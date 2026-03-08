@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primaryColor: var(--color-red-500);
+  --color-primaryColorStrong: var(--color-red-600);
+  --color-primaryColorLight: var(--color-red-400);
+
+  --color-whiteColor: var(--color-white);
+}
