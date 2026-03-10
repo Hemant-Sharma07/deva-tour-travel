@@ -2,25 +2,76 @@ import HeroSection from "../components/HeroSection";
 
 const jaipurPlaces = [
   {
-    name: "Hawa Mahal",
-    description:
-      "Iconic ‘Palace of Winds’ rising over the old city, a symbol of Jaipur’s royal heritage.",
+    title: "Hawa Mahal",
+    tag: "Old City",
     image:
       "https://images.unsplash.com/photo-1603262110263-fb0112e7cc33?auto=format&fit=crop&w=1200&q=80",
+    description:
+      "Drive through the buzzing lanes around the iconic ‘Palace of Winds’ and capture the perfect Pink City postcard.",
   },
   {
-    name: "Amber Fort",
-    description:
-      "Magnificent hilltop fort overlooking Maota Lake, known for its grand courtyards and views.",
+    title: "Amber Fort",
+    tag: "Heritage Fort",
     image:
       "https://i.pinimg.com/736x/24/c3/ab/24c3abec091dd101c6a4ca8c4a27db56.jpg",
+    description:
+      "Scenic uphill drive to the majestic fort with panoramic views of Aravalli hills and Maota Lake.",
   },
   {
-    name: "City Palace",
+    title: "Jal Mahal",
+    tag: "Lake View",
+    image:
+      "https://i.pinimg.com/736x/bc/e7/15/bce715124626b0cdfc35b8eef1f9ecea.jpg",
     description:
-      "A stunning fusion of Rajasthani and Mughal architecture in the heart of Pink City.",
+      "Evening rides by the calm waters of Man Sagar Lake with the beautiful Jal Mahal floating in the middle.",
+  },
+  {
+    title: "City Palace",
+    tag: "Royal Residence",
     image:
       "https://i.pinimg.com/736x/af/9e/62/af9e62911672c2d8f5d8b6f2bfa90381.jpg",
+    description:
+      "Explore the royal courtyards and museums in the heart of the Pink City with hassle‑free parking.",
+  },
+  {
+    title: "Nahargarh Fort",
+    tag: "Sunset Point",
+    image:
+      "https://i.pinimg.com/736x/c8/c1/be/c8c1be3ef7e851ad9ac545fe71b65220.jpg",
+    description:
+      "A favourite evening drive spot offering stunning sunset views over the entire Jaipur cityscape.",
+  },
+  {
+    title: "Albert Hall Museum",
+    tag: "Museum",
+    image:
+      "https://i.pinimg.com/736x/d8/4b/8d/d84b8d0450f52b3c0e2f1c5bf6b5688f.jpg",
+    description:
+      "Drive past the Indo‑Saracenic architecture lit up at night or stop for a relaxed museum visit.",
+  },
+  {
+    title: "Patrika Gate",
+    tag: "Photo Spot",
+    image:
+      "https://i.pinimg.com/736x/a0/87/93/a08793f0fd7fb514f0a7bbc0e41d4d6c.jpg",
+    description:
+      "Perfect Instagram‑worthy stop with colourful painted arches at Jawahar Circle, ideal for short drives.",
+  },
+  {
+    title: "Johari Bazaar",
+    tag: "Shopping",
+    image:
+      "https://i.pinimg.com/736x/3b/c1/7c/3bc17cd03896f667a94818e44c3e6bbd.jpg",
+    description:
+      "Comfortable pick‑up and drop for jewellery and handicraft shopping in the busy old market streets.",
+  },
+  {
+    title: "Galta Ji (Monkey Temple)",
+    tag: "Temple",
+    image:
+      "https://i.pinimg.com/736x/a7/a0/ab/a7a0ab62058ef8177878e3a8e309f9d4.jpg",
+    description:
+      "Scenic drives through the Aravalli hills to the ancient temple complex with natural springs.",
   },
 ];
 
@@ -28,9 +79,9 @@ const About = () => {
   return (
     <main className="bg-neutral-primary text-heading min-h-screen">
       {/* Hero strip for About */}
-      <section className="relative overflow-hidden bg-linear-to-r from-[#111827] via-[#1f2937] to-[#111827] text-white">
+      <section className="relative overflow-hidden bg-zinc-950 text-white">
         <div className="mx-auto flex max-w-7xl flex-col items-start gap-6 px-4 py-14 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8 lg:py-16">
-          <div className="max-w-2xl space-y-4">
+          <div className="max-w-2xl space-y-4" data-aos="fade-right">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-400">
               About Deva Tour & Travels
             </p>
@@ -46,7 +97,7 @@ const About = () => {
             </p>
           </div>
 
-          <div className="mt-6 w-full max-w-md rounded-2xl border border-white/10 bg-white/5 p-5 shadow-xl backdrop-blur-md sm:p-6">
+          <div className="mt-6 w-full max-w-md rounded-2xl border border-white/10 bg-white/5 p-5 shadow-xl backdrop-blur-md sm:p-6" data-aos="fade-left" data-aos-delay="200">
             <h2 className="text-lg font-semibold text-white mb-2">
               Why travellers choose us
             </h2>
@@ -62,7 +113,7 @@ const About = () => {
 
       {/* Jaipur highlights section */}
       <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
-        <div className="mb-8 text-center">
+        <div className="mb-8 text-center" data-aos="fade-up">
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-red-500">
             Jaipur Experiences
           </p>
@@ -76,10 +127,12 @@ const About = () => {
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {jaipurPlaces.map((place) => (
+          {jaipurPlaces.map((place, index) => (
             <article
               key={place.name}
-              className="group overflow-hidden rounded-2xl border border-neutral-tertiary bg-neutral-secondary-soft shadow-md transition hover:-translate-y-1 hover:shadow-xl"
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+              className="group overflow-hidden rounded-xl border border-zinc-300 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
             >
               <div className="relative h-44 sm:h-52 overflow-hidden">
                 <img

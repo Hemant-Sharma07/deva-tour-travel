@@ -2,6 +2,9 @@ import React, { useRef, useState, useEffect } from "react";
 import HeroSection from "../components/HeroSection";
 import { CustomButton } from "../components/Atoms/AllButtons";
 import TravelCard from "../components/TravelCard";
+import CustomerSection from "../components/CustomerSection";
+import CarsSectionHome from "../components/CarsSectionHome";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const jaipurPlaces = [
@@ -79,15 +82,20 @@ const Home = () => {
     },
   ];
 
+  const navigate = useNavigate();
+
   return (
     <>
       <HeroSection />
 
       {/*  About section  */}
-      <section className="bg-white py-5 sm:py-10">
+      <section className="bg-white">
         <div className="mx-auto max-w-7xl flex w-full flex-col-reverse items-center gap-4 px-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
           {/* Left: text */}
-          <div className="w-full max-w-xl space-y-4 text-center lg:text-left">
+          <div 
+            className="w-full max-w-xl space-y-4 text-center lg:text-left"
+            data-aos="fade-right"
+          >
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-red-500">
               About Deva Tour &amp; Travels
             </p>
@@ -102,15 +110,21 @@ const Home = () => {
               journey comfortable.
             </p>
 
-            <CustomButton
-              label="Book Now"
-              variant="primary"
-              className="max-w-32"
-            />
+            <div className="flex justify-center md:justify-start">
+              <CustomButton
+                label="Book Now"
+                variant="primary"
+                className="max-w-32"
+                onClick={() => navigate("/contact-us")}
+              />
+            </div>
           </div>
 
           {/* Right: logo highlight */}
-          <div className="w-full max-w-sm">
+          <div 
+            className="w-full max-w-sm"
+            data-aos="fade-left"
+          >
             <div className="mx-auto flex items-center justify-center bg-neutral-secondary-soft/60 px-6 py-6 sm:px-8 sm:py-8">
               <img
                 src="/logo.png"
@@ -123,10 +137,13 @@ const Home = () => {
       </section>
 
       {/* Jaipur places slider section */}
-      <section className="bg-neutral-primary py-10 sm:py-14">
+      <section className="bg-neutral-primary py-10 sm:py-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-6 sm:mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-            <div>
+          <div 
+            className="mb-6 sm:mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between"
+            data-aos="fade-up"
+          >
+            <div className="text-center md:text-start">
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-red-400">
                 Jaipur Places
               </p>
@@ -145,6 +162,12 @@ const Home = () => {
           <JaipurPlacesSlider jaipurPlaces={jaipurPlaces} />
         </div>
       </section>
+
+      {/* Customer stats section */}
+      <CustomerSection />
+
+      {/* Featured cars preview */}
+      <CarsSectionHome />
     </>
   );
 };
@@ -158,7 +181,7 @@ const JaipurPlacesSlider = ({ jaipurPlaces }) => {
   useEffect(() => {
     const interval = setInterval(
       () => setCurrentIndex((prev) => (prev + 1) % total),
-      3000
+      3000,
     );
     return () => clearInterval(interval);
   }, [total]);
@@ -192,9 +215,11 @@ const JaipurPlacesSlider = ({ jaipurPlaces }) => {
           `}
         </style>
 
-        {jaipurPlaces.map((place) => (
+        {jaipurPlaces.map((place, index) => (
           <div
             key={place.title}
+            data-aos="fade-up"
+            data-aos-delay={index * 100}
             className="min-w-[85%] sm:min-w-[55%] md:min-w-[45%] lg:min-w-[32%]"
           >
             <TravelCard

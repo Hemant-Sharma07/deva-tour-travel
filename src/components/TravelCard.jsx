@@ -1,7 +1,7 @@
 const TravelCard = ({ title, description, image, tag }) => {
   return (
     <article className="group relative flex h-full min-h-[260px] flex-col overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-xs transition hover:-translate-y-1 hover:shadow-lg">
-      <div className="relative h-40 sm:h-48 overflow-hidden">
+      <div className="relative h-44 sm:h-52 overflow-hidden">
         <img
           src={image}
           alt={title}

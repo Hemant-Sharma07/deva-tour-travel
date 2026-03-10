@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 import { CustomButton } from "./Atoms/AllButtons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("Home");
 
+  const navigate = useNavigate();
+
   const tabs = [
     { label: "Home", to: "/" },
     { label: "About", to: "/about" },
-    { label: "Services", to: "#" },
-    { label: "Contact", to: "#" },
+    { label: "Premium Cars", to: "/premium-cars" },
+    { label: "Contact", to: "/contact-us" },
   ];
 
   const toggleMenu = () => {
@@ -24,7 +26,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-neutral-primary w-full z-20 border-b border-zinc-200">
+    <nav className="bg-neutral-primary w-full z-20 border-b border-zinc-200" data-aos="fade-down">
       <div className="flex flex-wrap items-center justify-between mx-auto py-2 px-3 md:px-8">
         <Link
           to="/"
@@ -42,7 +44,7 @@ const Navbar = () => {
         </Link>
 
         <div className="inline-flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-          <CustomButton label="Book Now" variant="primary" />
+          <CustomButton label="Book Now" variant="primary" onClick={() => navigate("/contact-us")}/>
 
           <button
             type="button"
@@ -82,7 +84,7 @@ const Navbar = () => {
 
         {/* Mobile menu */}
         <div
-          className={`md:hidden w-full mt-2 overflow-hidden transition-all duration-300 ease-in-out ${
+          className={`md:hidden w-full mt-2 overflow-hidden transition-all duration-700 ease-in-out ${
             isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
           }`}
         >

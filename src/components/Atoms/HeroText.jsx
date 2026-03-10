@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const words = ["Journey", "Adventure", "Experience"];
+const words = ["Journey", "Road Trip", "Adventure", "Business Trip", "Vacation"];
 
 export default function HeroText() {
   const [wordIndex, setWordIndex] = useState(0);
@@ -29,23 +29,23 @@ export default function HeroText() {
 
   return (
     <div
-      className="text-center text-whiteColor max-w-2xl mx-auto"
+      className="text-center text-whiteColor max-w-3xl mx-auto"
       data-aos="fade-up"
     >
       <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-        Premium Cars
+        Find The Perfect
       </h1>
 
       <h1 className="mt-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-        For Every{" "}
+        Car For Every{" "}
         <span className="text-red-500 border-r-2 border-red-500 pr-1">
           {typedText}
         </span>
       </h1>
 
       <p className="mt-6 text-base sm:text-lg text-gray-200">
-        Deva Tour Travels provides comfort and style with India's most trusted
-        luxury car rental service.
+        Experience premium travel with our wide range of luxury and comfortable cars.
+        Your perfect ride is just a booking away.
       </p>
     </div>
   );
